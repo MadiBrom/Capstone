@@ -1,75 +1,24 @@
-import React, { useState } from "react";
-import playersData from "./playersData"; // Importing player data
-import Modal from "./Modal"; // Importing the Modal component
-import SinglePlayer from "./SinglePlayer"; // Importing the SinglePlayer component
-
-// List of players data
-const playersData = [
-  {
-    id: 1,
-    name: "Player 1",
-    job: " mechanic ? mage",
-    description: "The agile warrior",
-  },
-  {
-    id: 2,
-    name: "Player 2",
-    job: " mechanic ? mage",
-    description: "The strong tank",
-  },
-  {
-    id: 3,
-    name: "Player 3",
-    job: " mechanic ? mage",
-    description: "The cunning rogue",
-  },
-  {
-    id: 4,
-    name: "Player 1",
-    job: " mechanic ? mage",
-    description: "The agile warrior",
-  },
-  {
-    id: 5,
-    name: "Player 2",
-    job: " mechanic ? mage",
-    description: "The strong tank",
-  },
-  {
-    id: 6,
-    name: "Player 3",
-    job: " mechanic ? mage",
-    description: "The cunning rogue",
-  },
-];
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Characters = () => {
-  const [selectedPlayer, setSelectedPlayer] = useState(null);
+  const navigate = useNavigate(); // Move this hook to the top level of the component
 
-  const handlePlayerClick = (player) => {
-    setSelectedPlayer(player);
-  };
-
-  const closeModal = () => {
-    setSelectedPlayer(null);
+  const handleClick = () => {
+    navigate("/intro"); // Use the navigate function here
   };
 
   return (
     <div>
-      <h2>Select a Player</h2>
-      <div>
-        {playersData.map((player) => (
-          <button key={player.id} onClick={() => handlePlayerClick(player)}>
-            {player.name}
-          </button>
-        ))}
-      </div>
-
-      {selectedPlayer && (
-        <Modal onClose={closeModal}>
-          <SinglePlayer player={selectedPlayer} />
-        </Modal>
-      )}
+      <h1 id="intro">Characters</h1>
+      {/* {players.map((player) => (
+        <div key={player.id}>
+          <h3>{player.name}</h3>
+          <p>Job: {player.job}</p>
+          <p>Description: {player.description}</p>
+        </div>
+      ))} */}
+      <button onClick={handleClick}>Click Me</button>
     </div>
   );
 };

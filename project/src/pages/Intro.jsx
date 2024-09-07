@@ -29,31 +29,35 @@ const useTypingEffect = (text, speed, onComplete) => {
 const Intro = () => {
   const navigate = useNavigate();
 
-  const storyText1 =
-    "main generator 32% power. Approx. 41 hours until depletion!";
-  const storyText = `  WARNING 3419: ${storyText1}`;
+  const storyText = "  WARNING 3419: Power Failure";
 
   const typingSpeed = 50;
 
   const [isTypingFinished, setIsTypingFinished] = useState(false);
+  const [showMessage, setShowMessage] = useState(true);
 
   // Use the custom hook for the typing effect with the callback
   const displayedText = useTypingEffect(storyText, typingSpeed, () => {
-    setIsTypingFinished(true); // Set the button to show when typing is complete
+    setIsTypingFinished(true);
   });
 
-  // Handle navigation on button click
   const handleClick = () => {
-    navigate("/tree"); // Navigate to the Tree page using its route path
+    setShowMessage(false);
+    navigate("/details");
   };
 
   return (
-    <div className="container">
-      <div className="main-div">
-        <p id="intro">{displayedText}</p>
-        {isTypingFinished && ( // Only show the button when typing is finished
-          <button onClick={handleClick}>DISMISS</button>
-        )}
+    <div id="intro-body">
+      <div className="container">
+        <div className="main-div">
+          <div>
+            {/* Initially display the first message */}
+            <p id="intro">{displayedText}</p>
+            {isTypingFinished && (
+              <button onClick={handleClick}>See Details</button>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

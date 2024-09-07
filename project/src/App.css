@@ -1,27 +1,45 @@
 body {
   background-color: black;
 }
-.container {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  margin-top: 300px;
-  margin-bottom: 300px;
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
-.main-div {
-  background-color: rgb(174, 0, 255);
-  width: 500px;
-  padding: 50px;
-}
-#intro {
-  color: white;
-}
-#tree-body {
-  min-height: 1000px;
-  width: auto;
+#intro-body {
+  height: 100vh; /* Full screen height */
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url(treeback.png);
-  margin: 0px;
+  background-size: cover; /* Ensures the image covers the entire screen */
+  background-image: url(introback.png); /* Replace with your actual image */
+  margin: 0;
+}
+
+#tree-body {
+  height: 100vh; /* Full screen height */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; /* Ensures the image covers the entire screen */
+  background-image: url(treeback.png); /* Replace with your actual image */
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  align-items: center; /* Centers the content vertically */
+  justify-content: center; /* Centers the content horizontally */
+  height: 100%; /* Ensure the container takes full height */
+}
+
+.main-div {
+  background-color: rgba(0, 255, 213, 0.658);
+  width: 500px;
+  padding: 50px;
+  text-align: center;
+}
+#intro {
+  color: rgb(0, 0, 0);
+  font-size: 50px;
 }
